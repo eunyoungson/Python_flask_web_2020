@@ -1,0 +1,87 @@
+{% extends "09_bootstrap.html" %}
+{% block title %}Flask Template{% endblock %}
+{% block content0 %}
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#">
+    <img src="{{url_for('static', filename='../static/img/로고1.png')}}" alt="logo" style="width:40px; margin-left: 50px;">
+    </a>
+</nav>
+{% endblock %}
+
+<!--섹션1/본문1-->
+{% block content1 %}
+    <nav class="navbar bg-light">
+    <ul class="navbar-nav">           
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">서울특별시</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="0917_안드로이드.html">Development </a>
+            <a class="dropdown-item" href="0917_아이폰.html">종류 / 성격</a>  
+            <a class="dropdown-item" href="0917_아이폰.html">Socialization</a>   
+        </div>
+        </li>
+        <hr>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">코로나19</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="5.2020.html">갤럭시 S20</a>
+                <a class="dropdown-item" href="5.2020.html">V60 씽큐</a>
+                <a class="dropdown-item" href="5.2020.html">아이폰 12</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="5.2020.html">갤럭시 Z 플립</a>
+            </div>
+        </li>
+        <hr>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">카토그램</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="5.2020.html">갤럭시 S20</a>
+            <a class="dropdown-item" href="5.2020.html">V60 씽큐</a>
+            <a class="dropdown-item" href="5.2020.html">아이폰 12</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="5.2020.html">갤럭시 Z 플립</a>
+        </div>
+        </li>
+        <hr>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">크롤링</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="5.2020.html">갤럭시 S20</a>
+            <a class="dropdown-item" href="5.2020.html">V60 씽큐</a>
+            <a class="dropdown-item" href="5.2020.html">아이폰 12</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="5.2020.html">갤럭시 Z 플립</a>
+        </div>
+        </li>
+        <hr>
+        <li class="nav-item">
+        <a class="nav-link" href="0917_2020출시.html">주가예측</a>
+        </li>
+        <hr>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">워드클라우드</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="5.2020.html">갤럭시 S20</a>
+            <a class="dropdown-item" href="5.2020.html">V60 씽큐</a>
+            <a class="dropdown-item" href="5.2020.html">아이폰 12</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="5.2020.html">갤럭시 Z 플립</a>
+        </div>
+        </li>
+        <hr>
+    </ul>
+    </nav>  
+{% endblock %}
+<!--섹션2-->
+
+{% block subtitle %}Bootstrap Flask <i class="fas fa-home"></i>{% endblock %}
+<hr>
+{% block content2 %}       
+    <div>
+    <img src="{{url_for('static', filename='img/3.jpg')}}" alt="야경" style="width: 100%; height: 200px;">
+    </div>
+{% endblock %}
+{% block additional_body %}
+     Copyright &copy; 2020 Yomi's Garden
+{% endblock %}
