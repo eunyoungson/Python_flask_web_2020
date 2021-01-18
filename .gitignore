@@ -4,14 +4,18 @@ kakaomapkey.txt
 openweatherkey.txt
 roadapikey.txt
 fontawesome-free-5.15.1-web/
+gov_data_api_key.txt
 
 # gitignore template for Jupyter Notebooks
 # website: http://jupyter.org/
 
 samples/
-
-
-
+upload/
+log/
+static/
+db/
+04_db/
+logging.json
 chromedriver.exe
 
 .ipynb_checkpoints
