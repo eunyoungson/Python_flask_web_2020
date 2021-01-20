@@ -3,6 +3,8 @@ googlemapskey.txt
 kakaomapkey.txt
 openweatherkey.txt
 roadapikey.txt
+gov_data_api_key.txt
+seoul_api_key.txt
 fontawesome-free-5.15.1-web/
 gov_data_api_key.txt
 
@@ -12,9 +14,12 @@ gov_data_api_key.txt
 samples/
 upload/
 log/
+img/
 static/
 db/
 04_db/
+data/
+model/
 logging.json
 chromedriver.exe
 

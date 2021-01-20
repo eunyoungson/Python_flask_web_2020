@@ -39,7 +39,7 @@ def before_app_first_request():
 
 @stock_bp.route('/stock', methods=['GET', 'POST'])
 def stock():
-    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':0, 'cg':0, 'cr':0, 'st':1, 'wc':0}
+    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':0, 'cg':0, 'cr':0, 'st':1, 'wc':0, 'cf':0, 'ac':0, 're':0, 'cu':0}
     if request.method == 'GET':
         return render_template('stock/stock.html', menu=menu, weather=get_weather(),
                                 kospi=kospi_dict, kosdaq=kosdaq_dict, 

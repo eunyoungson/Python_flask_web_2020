@@ -85,23 +85,63 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">샌드위치</a>
                             <a class="dropdown-item" href="#">주유소</a>
+                            <a class="dropdown-item" href="/crawling/food">맛집(식신)</a>
+                            <a class="dropdown-item" href="/crawling/music">음악(지니)-BS</a>
+                            <a class="dropdown-item" href="/crawling/music_jquery">음악(지니)-DataTables</a>
+                            <a class="dropdown-item" href="/crawling/book">도서(인터파크)</a>
                         </div>
                     </li>
-                    <div class="dropdown-divider"></div>
-                    <li class="nav-item">
-                        <a class="nav-link {% if menu.st %}active{% endif %}" 
-                           href="{% if menu.st %}#{% else %}/stock/stock{% endif %}">주가 예측</a>
-                    </li>
+                    
                     <div class="dropdown-divider"></div>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle {% if menu.wc %}active{% endif %}" 
                            data-toggle="dropdown" href="#">워드 클라우드</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#"> 선물</a>
-                            <a class="dropdown-item" href="#">경제 뉴스</a>
+                            <a class="dropdown-item" href="#">텍스트 파일</a>
                             <a class="dropdown-item" href="#">스포츠 뉴스</a>
                         </div>
                     </li>
+
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if menu.ac %}active{% endif %}" 
+                           data-toggle="dropdown" href="#">고급 분류</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">IMDB 영화평</a>
+                            <a class="dropdown-item" href="#">네이버 영화평</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">20 뉴스그룹</a>
+                            <a class="dropdown-item" href="/advanced/digits">MNIST 손글씨</a>
+                        </div>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if menu.re %}active{% endif %}" 
+                           data-toggle="dropdown" href="#">회귀</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">당뇨병 BMI</a>
+                            <a class="dropdown-item" href="#">아이리스 피처</a>
+                            <a class="dropdown-item" href="#">보스톤 집값</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item">
+                        <a class="nav-link {% if menu.st %}active{% endif %}" 
+                           href="{% if menu.st %}#{% else %}/stock/stock{% endif %}">주가 예측</a>
+                    </li>
+
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item">
+                        <a class="nav-link {% if menu.cu %}active{% endif %}" 
+                           href="{% if menu.cu %}#{% else %}#{% endif %}">군집화/PCA</a>
+                    </li>
+
+
+                    
+
                     <div class="dropdown-divider"></div>
                 </ul>
             </div>

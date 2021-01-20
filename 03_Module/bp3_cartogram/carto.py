@@ -10,7 +10,7 @@ import my_util.drawKorea as dk
 carto_bp = Blueprint('carto_bp', __name__)
 
 def get_weather_main():
-    weather = None
+    '''weather = None
     try:
         weather = session['weather']
     except:
@@ -18,12 +18,13 @@ def get_weather_main():
         weather = get_weather()
         session['weather'] = weather
         session.permanent = True
-        current_app.permanent_session_lifetime = timedelta(minutes=60)
+        current_app.permanent_session_lifetime = timedelta(minutes=60)'''
+    weather = get_weather()
     return weather
 
 @carto_bp.route('/pop/<option>')
 def population(option):
-    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':0, 'cg':1, 'cr':0, 'st':0, 'wc':0}
+    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':0, 'cg':1, 'cr':0, 'st':0, 'wc':0, 'cf':0, 'ac':0, 're':0, 'cu':0}
     df_pop = pd.read_csv('G:/컴퓨터/data/population.csv')
     column_dict = {'crisis_area':'소멸위기지역', 'crisis_ratio':'소멸비율'}
     color_dict = {'crisis_area':'Reds', 'crisis_ratio':'PuBu'}
@@ -35,7 +36,7 @@ def population(option):
 
 @carto_bp.route('/coffee', methods=['GET', 'POST'])
 def coffee():
-    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':0, 'cg':1, 'cr':0, 'st':0, 'wc':0}
+    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':0, 'cg':1, 'cr':0, 'st':0, 'wc':0, 'cf':0, 'ac':0, 're':0, 'cu':0}
     if request.method == 'GET':
         return render_template('cartogram/coffee.html', menu=menu, weather=get_weather_main())
     else:
