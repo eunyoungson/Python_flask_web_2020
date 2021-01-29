@@ -74,7 +74,7 @@
                         <a class="nav-link dropdown-toggle {% if menu.cg %}active{% endif %}" 
                            data-toggle="dropdown" href="#">카토그램</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">인구소멸위기</a>
+                            <a class="dropdown-item" href="/cartogram/pop/crisis_area">인구소멸위기</a>
                             <a class="dropdown-item" href="/cartogram/coffee">커피지수</a>
                         </div>
                     </li>
@@ -98,8 +98,21 @@
                            data-toggle="dropdown" href="#">워드 클라우드</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#"> 선물</a>
-                            <a class="dropdown-item" href="#">텍스트 파일</a>
-                            <a class="dropdown-item" href="#">스포츠 뉴스</a>
+                            <a class="dropdown-item" href="/wordcloud/text">텍스트 파일</a>
+                            <a class="dropdown-item" href="/wordcloud/sports_news">스포츠 뉴스</a>
+                        </div>
+                    </li>
+
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if menu.wc %}active{% endif %}" 
+                           data-toggle="dropdown" href="#">분류</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/classification/cancer"> 유방암</a>
+                            <a class="dropdown-item" href="/classification/titanic"> 타이타닉</a>
+                            <a class="dropdown-item" href="/classification/pima"> 피마인</a>
+                            <a class="dropdown-item" href="/classification/iris">아이리스</a>
+                            <a class="dropdown-item" href="/classification/wine">와인</a>
                         </div>
                     </li>
 
@@ -121,8 +134,8 @@
                            data-toggle="dropdown" href="#">회귀</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">당뇨병 BMI</a>
-                            <a class="dropdown-item" href="#">아이리스 피처</a>
-                            <a class="dropdown-item" href="#">보스톤 집값</a>
+                            <a class="dropdown-item" href="/regression/iris">아이리스 피처</a>
+                            <a class="dropdown-item" href="/regression/boston">보스톤 집값</a>
                             <div class="dropdown-divider"></div>
                         </div>
                     </li>
@@ -130,13 +143,13 @@
                     <div class="dropdown-divider"></div>
                     <li class="nav-item">
                         <a class="nav-link {% if menu.st %}active{% endif %}" 
-                           href="{% if menu.st %}#{% else %}/stock/stock{% endif %}">주가 예측</a>
+                           href="{% if menu.st %}#{% else %}/stock/stock{% endif %}">주가 예측(회귀)</a>
                     </li>
 
                     <div class="dropdown-divider"></div>
                     <li class="nav-item">
                         <a class="nav-link {% if menu.cu %}active{% endif %}" 
-                           href="{% if menu.cu %}#{% else %}#{% endif %}">군집화/PCA</a>
+                           href="{% if menu.cu %}#{% else %}/cluster/cluster{% endif %}">군집화/PCA</a>
                     </li>
 
 

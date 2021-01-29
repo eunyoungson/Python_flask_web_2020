@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block weather %} {{ weather|safe() }} {% endblock %}
 {% block subtitle %}
-    <strong>유방암 이진 분류</strong>
+    <strong>군집화</strong>
 {% endblock %}
 {% block content %}
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
-            <form action="/cluster/cluster" method="post"> enctype="multipart/form-data"
+            <form action="/cluster/cluster" method="post" enctype="multipart/form-data"> 
                 <table class="table table-borderless">
                     <tr>
                         <td><label for="index">데이터</label></td>
@@ -18,6 +18,12 @@
                             </div>
                         </td>
                     </tr>
+
+                    <tr>
+                        <td><label for="k_number">군집수(K)</label></td>
+                        <td><input type="text" class="form-control" id="k_number" name="k_number"></td>                       </td>
+                    </tr>
+                    
                     <tr>
                         <td colspan="2" style="text-align: center;">
                             <button type="submit" class="btn btn-primary mr-2">실행</button>

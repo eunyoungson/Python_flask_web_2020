@@ -1,37 +1,49 @@
 {% extends "base.html" %}
 {% block weather %} {{ weather|safe() }} {% endblock %}
 {% block subtitle %}
-    <strong>유방암 이진 분류 결과</strong>
+    <strong>아이리스 분꽃 분류 결과</strong>
 {% endblock %}
 {% block content %}
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
             
-                <table class="table table-borderless">
+                <table class="table table-borderless"> 
                     <tr>
                         <td>테스트 인덱스</td>
                         <td style="text-align: center;">{{res.index}}</td>
                     </tr>
                     <tr>
                         <td>레이블값</td>
-                        <td  style="text-align: center;">{{res.label}}{%if res.label%}(양성){% else %}(악성){% endif %}</td>
+                        <td  style="text-align: center;">{{res.label}}</td>
                     </tr>
                     <tr>
                         <td>로지스틱 회귀 결과</td>
-                        <td style="text-align: center;">{{res.pred_lr}}{%if res.pred_lr%}(양성){% else %}(악성){% endif %}</td>                      
+                        <td  style="text-align: center;">{{res.pred_lr}}</td>                   
                     </tr>
                     <tr>
                         <td>서포트벡터머신 결과</td>
-                        <td style="text-align: center;">{{res.pred_sv}}{%if res.pred_sv%}(양성){% else %}(악성){% endif %}</td>                      
+                        <td  style="text-align: center;">{{res.pred_sv}}</td>                    
                     </tr>
                     <tr>
                         <td>랜덤포레스트 결과</td>
-                        <td style="text-align: center;">{{res.pred_rf}}{%if res.pred_rf%}(양성){% else %}(악성){% endif %}</td>                      
+                        <td  style="text-align: center;">{{res.pred_rf}}</td>                     
+                    </tr>
+                    <tr>
+                        <td>최종 결과</td>                   
+                        <td  style="text-align: center;">{{res.species}}</td>                                  
+                    </tr>
+                    <tr>
+                        <td>이미지</td>
+                        
+                        <td colspan="2" style="text-align: center;"><img src="{{url_for('static', filename='img/iris'+(res.species|string)+'.PNG', q=mtime)}}" width="100" alt="분꽃 이미지"></td>
+                                   
+                        
+                    </td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: center;">
-                            <button class="btn btn-primary" onclick="location.href='classification/cancer'">재실행</button>
+                            <button class="btn btn-primary" onclick="location.href='classification/iris'">재실행</button>
                         </td>
                     </tr>
                 </table>
@@ -39,17 +51,17 @@
         </div>
         <div class="col-2"></div>
 
-        <div class="col-1"></div>
-        <div class="col-10">
+        <div class="col-2"></div>
+        <div class="col-8">
             <table class="table table-sm">
                 {% for key, value in org.items() %}
-                    {% if not loop.first and loop.index % 3 == 1 %}
+                    {% if not loop.first and loop.index % 2 == 1 %}
                     </tr>
                     {% endif %}
-                    {% if loop.index % 3 == 1 %}
+                    {% if loop.index % 2 == 1 %}
                     <tr class="d-flex">
                     {% endif %}
-                        <td class="col-3"><small>{{key}}</small></td>
+                        <td class="col-4"><small>{{key}}</small></td>
                         <td class="col-1"><small>{{value|round(4)}}</small></td>
                     {% if loop.last %}
                     </tr>
@@ -57,6 +69,6 @@
                 {% endfor %}
             </table>
         </div>
-        <div class="col-1"></div>  
+        <div class="col-2"></div>  
     </div>
 {% endblock %}

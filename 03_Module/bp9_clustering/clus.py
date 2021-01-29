@@ -33,22 +33,25 @@ def cluster():
         return render_template('cluster/cluster.html', menu=menu, weather=get_weather_main())
     else:
         k_number= int(request.form['k_number'])
-        f_csv = request.file['csv']
+        f_csv = request.files['csv']
         file_csv = os.path.join(current_app.root_path, 'static/upload/') + f_csv.filename
         f_csv.save(file_csv)
+        filename=f_csv.filename
         current_app.logger.debug(f"{k_number}, {f_csv}, {file_csv}")
 
         df_csv = pd.read_csv(file_csv)
+        
         # 전처리 - 정규화
         scaler = StandardScaler()
-        X_scaled = scaler.fit_transform(df_csv)   #(df_csv.iloc[:, :-1]) 내 데이터에는 마지막행에 target값이 없으므로
+        X_scaled = scaler.fit_transform(df_csv.iloc[:, :-1])    
 
         # 차원 축소(PCA)
+        
         pca = PCA(n_components=2)
         pca_array = pca.fit_transform(X_scaled)
         df = pd.DataFrame(pca_array, columns=['pca_x', 'pca_y'])
-        df['target'] = df_csv.target
-        #df['target'] = df_csv.iloc[:, -1].values
+       
+        df['target'] = df_csv.iloc[:, -1].values
 
         # K-Means Clustering
         kmeans = KMeans(n_clusters=k_number, init='k-means++', max_iter=300, random_state=2021)
@@ -82,4 +85,4 @@ def cluster():
 
         mtime = int(os.stat(img_file).st_mtime)
 
-        return render_template('cluster/cluster_res.html', menu = menu, weather=get_weather_main(),k_number=k_number, mtime=mtime)
+        return render_template('cluster/cluster_res.html', menu = menu, weather=get_weather_main(),k_number=k_number,filename=filename, mtime=mtime)

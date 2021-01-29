@@ -29,7 +29,7 @@ app.register_blueprint(word_bp, url_prefix='/wordcloud')
 app.register_blueprint(clsf_bp, url_prefix='/classification')
 app.register_blueprint(aclsf_bp, url_prefix='/advanced')
 app.register_blueprint(rgrs_bp, url_prefix='/regression')
-app.register_blueprint(rgrs_bp, url_prefix='/cluster')
+app.register_blueprint(clus_bp, url_prefix='/cluster')
 
 with open('./logging.json', 'r') as file:
     config = json.load(file)
