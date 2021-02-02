@@ -25,7 +25,7 @@ def get_weather_main():
 
 @word_bp.route('/text', methods=['GET', 'POST'])
 def text():
-    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':0, 'cg':0, 'cr':0, 'st':0, 'wc':1,'cf':0, 'ac':0, 're':0, 'cu':0}
+    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':0, 'cg':0, 'cr':0, 'st':0, 'wc':1,'cf':0, 'ac':0, 're':0, 'cu':0,'nl':0}
     if request.method == 'GET':
         return render_template('wordcloud/text.html', menu=menu, weather=get_weather_main())
     else: 
@@ -56,7 +56,7 @@ def text():
 
 @word_bp.route('/sports_news', methods=['GET', 'POST'])
 def sports_news():
-    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':0, 'cg':0, 'cr':0, 'st':0, 'wc':0,'cf':0, 'ac':0, 're':0, 'cu':0}
+    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':0, 'cg':0, 'cr':0, 'st':0, 'wc':0,'cf':0, 'ac':0, 're':0, 'cu':0,'nl':0}
     if request.method == 'GET':
         return render_template('wordcloud/sports.html', menu=menu, weather=get_weather_main())
     else: 

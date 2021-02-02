@@ -26,7 +26,7 @@ def get_weather_main():
 
 @covid_bp.route('/region')
 def region():
-    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':1, 'cg':0, 'cr':0, 'st':0, 'wc':0,'cf':0, 'ac':0, 're':0, 'cu':0}
+    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':1, 'cg':0, 'cr':0, 'st':0, 'wc':0,'cf':0, 'ac':0, 're':0, 'cu':0,'nl':0}
     date = request.args.get('date', datetime.now().strftime('%Y-%m-%d'))
     rows = dm.get_region_daily(date)
 
@@ -43,7 +43,7 @@ def update_region(date):
 
 @covid_bp.route('/agender')
 def agender():
-    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':1, 'cg':0, 'cr':0, 'st':0, 'wc':0,'cf':0, 'ac':0, 're':0, 'cu':0}
+    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':1, 'cg':0, 'cr':0, 'st':0, 'wc':0,'cf':0, 'ac':0, 're':0, 'cu':0,'nl':0}
     date = request.args.get('date', datetime.now().strftime('%Y-%m-%d'))
     rows = dm.get_agender_daily(date)
 
@@ -63,7 +63,7 @@ def region_seq():
     if request.method == 'GET':
         mpl.rc('font', family='Malgun Gothic')
         mpl.rc('axes', unicode_minus=False)
-        menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':1, 'cg':0, 'cr':0, 'st':0, 'wc':0,'cf':0, 'ac':0, 're':0, 'cu':0}
+        menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':1, 'cg':0, 'cr':0, 'st':0, 'wc':0,'cf':0, 'ac':0, 're':0, 'cu':0,'nl':0}
         rows = dm.get_region_items_by_gubun('stdDay, incDec', '합계')
         cdf = pd.DataFrame(rows, columns=['기준일','전국'])
         metro_list = ['서울', '부산', '대구', '인천', '대전', '광주', '울산', '세종', 
@@ -103,7 +103,7 @@ def age_seq():
     if request.method == 'GET':
         mpl.rc('font', family='Malgun Gothic')
         mpl.rc('axes', unicode_minus=False)
-        menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':1, 'cg':0, 'cr':0, 'st':0, 'wc':0,'cf':0, 'ac':0, 're':0, 'cu':0}
+        menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':1, 'cg':0, 'cr':0, 'st':0, 'wc':0,'cf':0, 'ac':0, 're':0, 'cu':0,'nl':0}
         rows = dm.get_agender_items_by_gubun('stdDay, confCase', '0-9')
         adf = pd.DataFrame(rows, columns=['기준일','0-9'])
         adf = cu.get_daily(adf, '0-9', '0-9세')

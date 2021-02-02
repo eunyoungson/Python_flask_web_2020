@@ -31,7 +31,7 @@ def get_weather_main( ) :
 def cancer():
     menu = {'ho':0, 'da':0, 'ml':10, 
             'se':0, 'co':0, 'cg':0, 'cr':0, 'wc':0,'st':0,
-            'cf':1, 'ac':0, 're':0, 'cu':0}
+            'cf':1, 'ac':0, 're':0, 'cu':0,'nl':0}
     if request.method == 'GET':
         return render_template('classification/cancer.html', menu=menu, weather=get_weather())
     else:
@@ -58,7 +58,7 @@ def cancer():
 def titanic():
     menu = {'ho':0, 'da':0, 'ml':10, 
             'se':0, 'co':0, 'cg':0, 'cr':0, 'wc':0, 'st':0,
-            'cf':1, 'ac':0, 're':0, 'cu':0}
+            'cf':1, 'ac':0, 're':0, 'cu':0,'nl':0}
     if request.method == 'GET':
         return render_template('classification/titanic.html', menu=menu, weather=get_weather())
     else:
@@ -93,7 +93,7 @@ def titanic():
 def iris():
     menu = {'ho':0, 'da':0, 'ml':10, 
             'se':0, 'co':0, 'cg':0, 'cr':0, 'wc':0,'st':0,
-            'cf':1, 'ac':0, 're':0, 'cu':0}
+            'cf':1, 'ac':0, 're':0, 'cu':0,'nl':0}
     if request.method == 'GET':
         return render_template('classification/iris.html', menu=menu, weather=get_weather())
     else:

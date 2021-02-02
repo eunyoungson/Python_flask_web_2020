@@ -31,7 +31,7 @@ def get_weather_main():
 def iris():
     menu = {'ho':0, 'da':0, 'ml':10, 
             'se':0, 'co':0, 'cg':0, 'cr':0, 'wc':0, 'st':0,
-            'cf':0, 'ac':0, 're':1, 'cu':0}
+            'cf':0, 'ac':0, 're':1, 'cu':0,'nl':0}
     if request.method == 'GET':
         return render_template('regression/iris.html', menu=menu, weather=get_weather())
     else:
@@ -68,7 +68,7 @@ def iris():
 def boston():
     menu = {'ho':0, 'da':0, 'ml':10, 
             'se':0, 'co':0, 'cg':0, 'cr':0, 'wc':0, 'st':0,
-            'cf':0, 'ac':0, 're':1, 'cu':0}
+            'cf':0, 'ac':0, 're':1, 'cu':0,'nl':0}
     if request.method == 'GET':
         descriptions = ['범죄율','2.5만평 초과거주비율','비상업지역비율','찰스강 근처여부','농축일산화질소',
                         '방의 갯수','노후주택비율','주요시설접근지수','방사형도로접근지수','재산세 세율','학생/교사비율',

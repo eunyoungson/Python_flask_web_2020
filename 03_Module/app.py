@@ -14,6 +14,7 @@ from bp6_classification.clsf import clsf_bp
 from bp7_advanced.aclsf import aclsf_bp
 from bp8_regression.rgrs import rgrs_bp
 from bp9_clustering.clus import clus_bp
+from bpa_nat_lang.nl import nl_bp
 
 from my_util.weather import get_weather
 
@@ -30,6 +31,7 @@ app.register_blueprint(clsf_bp, url_prefix='/classification')
 app.register_blueprint(aclsf_bp, url_prefix='/advanced')
 app.register_blueprint(rgrs_bp, url_prefix='/regression')
 app.register_blueprint(clus_bp, url_prefix='/cluster')
+app.register_blueprint(nl_bp, url_prefix='/nat_lang')
 
 with open('./logging.json', 'r') as file:
     config = json.load(file)
@@ -54,7 +56,7 @@ def get_weather_main():
 def index():
     menu = {'ho':1, 'da':0, 'ml':0, 
             'se':0, 'co':0, 'cg':0, 'cr':0,'st':0, 'wc':0,
-            'cf':0, 'ac':0, 're':0, 'cu':0}
+            'cf':0, 'ac':0, 're':0, 'cu':0,'nl':0}
     return render_template('index.html', menu=menu, weather=get_weather_main())
 
 if __name__ == '__main__':
