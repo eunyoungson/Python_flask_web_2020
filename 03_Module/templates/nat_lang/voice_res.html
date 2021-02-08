@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <style>
+        td { text-align: center; }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>음성변환 결과</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <!--<div class="col-1"></div>
+        <div class="col-10">
+            
+            <tr>
+                <td><small>{{text}}</small></td>
+            </tr>
+        </div> 
+        <div class="col-1"></div>-->
+
+        <div class="col-1" style="margin-top: 50px;"></div>
+        <div class="col-10">
+            <table class="table table-striped"> 
+                           
+                <tr>
+                    <td class="col-2" style="background-color: beige;">오디오</td>
+                    <td class="col-10"><audio controls
+                        src="{{url_for('static', filename='img/cpv.mp3', q=mtime)}}"></audio></td>
+                </tr>
+                <!-- <td><audio autoplay controls><source src="img/cpv_sample.mp3" type="audio/mp3"></audio></td>-->
+                <tr>
+                    <td style="background-color: beige;">설정값</td>
+                </tr>
+                {% for key,value in v_val.items()%}   
+                <tr>
+                    <td class="col-2" id="trVo" name="v_val">{{key}}</td>
+                    <td class="col-2" id="trVo" name="v_val">{{value}}</td>   
+                </tr>
+                {% endfor %} 
+               
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button class="btn btn-primary" 
+                                onclick="location.href='/nat_lang/trVo'">재실행</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-1"></div>
+        
+    </div>
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>번역/음성 서비스</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <form action="/nat_lang/trVo" method="post">
+                <table class="table table-borderless">                  
+                    <tr> 
+                        <td>텍스트 입력</td>
+                        <td> <textarea  cols="55" name="text" rows="5" id="text"></textarea></td>     
+                    </tr> 
+                                
+                    <tr class="form-check" style="background-color: beige;">
+                        <td colspan="2">
+                                  
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" id= "option1"name="optradio" value="translation" checked><label for="translation">번역</label>            
+                            </label>
+                       
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td class="form-check-inline" for="langs">번역할 언어를 선택하세요.></td>                    
+                        <td >
+                            {% for key,value in languages.items()%}
+                                <div class="form-check-inline">
+                                    <label class="form-check-inline" for="trVo{{loop.index}}">
+                                    <input type="radio" class="form-check-input" id="trVo" name="lang" value="{{value}}">{{key}}
+                                    </label>
+                                </div> 
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <!--for value in x.values():  value -딕셔너리 값 호출-->
+                    <tr class="form-check" style="background-color: aliceblue"> 
+                        <td  colspan="2">
+                        
+                            <label class="form-check-label" >
+                            <input type="radio" class="form-check-input" id="option2"  name="optradio" value="voice"><label for="voice">음성</label>
+                            </label>
+                        
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>목소리조절</td>
+                        <td >
+                            <div class="form-check-inline">
+                                <label class="form-check-inline" >
+                                <input type="radio" class="form-check-input" id="speaker"  name="speaker" value="jinho" checked>남자
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label" >
+                                <input type="radio" class="form-check-input" id="speaker"  name="speaker" value="nara">여자
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>크기 조절</td> 
+                        <td>                           
+                            <label class="form-check-label" for="volume"  >← 작은 소리 ~ 큰 소리 </label>
+                            <input type="range" class="form-control-range" id="volume" name="volume"  min="-5" max="5" step="0.5" value="0">                          
+                        </td>
+                    </tr> 
+                    <tr> 
+                        <td>피치 조절</td> 
+                        <td>
+                            <label for="pitch" class="form-check-label" >← 높음 ~ 낮음 →</label>
+                            <input type="range" class="form-control-range"  id="pitch" name="pitch" min="-5" max="5" step="0.5" value="0">                           
+                        </td>
+                    </tr> 
+                    <tr> 
+                        <td>속도 조절</td> 
+                        <td>
+                            <label for="speed" class="form-label">← 빠르게 ~ 느리게 →</label>
+                            <input type="range" class="form-control-range" id="speed" name="speed" min="-5" max="5" step="0.5" value="0">
+                        </td>
+                    </tr> 
+                    <tr> 
+                        <td>분위기 조절</td> 
+                        <td>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="emotion" value="0" checked>보통
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="emotion" value="1">어두움
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="emotion" value="2">밝음
+                                </label>
+                            </div>
+                        </td>
+                    </tr> 
+               
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <button type="submit" class="btn btn-primary mr-2">실행</button>            
+                            <button type="reset" class="btn btn-secondary">취소</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="col-1"></div>
+    </div>
+{% endblock %}

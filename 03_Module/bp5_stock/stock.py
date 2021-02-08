@@ -63,13 +63,14 @@ def stock():
         learn_period = int(request.form['learn'])
         pred_period = int(request.form['pred'])
         current_app.logger.debug(f'{market}, {code}, {learn_period}, {pred_period}')
+        period = int(pred_period / 30)
 
         today = datetime.now()
         start_learn = today - timedelta(days=learn_period*365)
         end_learn = today - timedelta(days=1)
 
         stock_data = pdr.DataReader(code, data_source='yahoo', start=start_learn, end=end_learn)
-        current_app.logger.info(f"get stock data: {company}({code})")
+        current_app.logger.info(f"get stock data: {company}({code})({period})")
         df = pd.DataFrame({'ds': stock_data.index, 'y': stock_data.Close})
         df.reset_index(inplace=True)
         try:
@@ -84,7 +85,10 @@ def stock():
 
         fig = model.plot(forecast);
         img_file = os.path.join(current_app.root_path, 'static/img/stock.png')
+        img_file1 = os.path.join(current_app.root_path, f'G:/컴퓨터/주식예측/{company}{period}.png')
+
         fig.savefig(img_file)
+        fig.savefig(img_file1)
         mtime = int(os.stat(img_file).st_mtime)
 
         return render_template('stock/stock_res.html', menu=menu, weather=get_weather_main(), 
